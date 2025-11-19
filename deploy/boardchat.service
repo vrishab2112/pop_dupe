@@ -1,0 +1,16 @@
+[Unit]
+Description=BoardChat FastAPI
+After=network.target
+
+[Service]
+# Change 'app' and the paths to match your server user/home
+User=app
+WorkingDirectory=/home/app/apps/boardchat
+EnvironmentFile=/home/app/apps/boardchat/.env
+ExecStart=/home/app/apps/boardchat/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+
